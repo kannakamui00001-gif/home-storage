@@ -612,7 +612,8 @@ function editLocation(id) {
 }
 
 
-function deleteLocation(id) {
+
+async function deleteLocation(id) {
     const location = locations.find(function (item) {
         return item.id === id;
     });
@@ -643,24 +644,36 @@ function deleteLocation(id) {
         return;
     }
 
-    const nextLocations = locations.filter(function (item) {
-        return item.id !== id;
-    });
-
     try {
-        localStorage.setItem(
-            LOCATION_KEY,
-            JSON.stringify(nextLocations)
+        const response = await fetch(
+            `api/locations.php?id=${encodeURIComponent(id)}`,
+            {
+                method: "DELETE"
+            }
         );
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            alert(result.error || "ลบตำแหน่งไม่สำเร็จ");
+            return;
+        }
+
+        // อัปเดตข้อมูลใน JavaScript หลังจาก API ลบสำเร็จ
+        locations = locations.filter(function (item) {
+            return item.id !== id;
+        });
+
+        renderLocations();
+
+        alert("ลบตำแหน่งสำเร็จ");
+
     } catch (error) {
         console.error(error);
-        alert("ลบตำแหน่งไม่สำเร็จ");
-        return;
+        alert("ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้");
     }
-
-    locations = nextLocations;
-    renderLocations();
 }
+
 
     
 // โหลดข้อมูลเก่าจาก localStorage
