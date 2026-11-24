@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- รองรับหน้าจอมือถือ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home Storage</title>
+
+    <!-- เชื่อมต่อไฟล์ CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+
+        <!-- แถบเมนูด้านข้าง -->
+        <aside class="sidebar" id="sidebar">
+            <div class="brand">
+                <div class="brand-icon">H</div>
+                <div>
+                    <h2>Home Storage</h2>
+                    <p>จัดการสิ่งของในบ้าน</p>
+                </div>
+            </div>
+
+            <p class="menu-heading">เมนูหลัก</p>
+
+            <nav class="navigation">
+                <a href="#dashboard" class="nav-link active">
+                    <span class="nav-icon">▦</span>
+                    Dashboard
+                </a>
+
+                <a href="#inventory" class="nav-link">
+                    <span class="nav-icon">□</span>
+                    สิ่งของทั้งหมด
+                </a>
+
+                <a href="#borrowed" class="nav-link">
+                    <span class="nav-icon">↗</span>
+                    รายการยืม
+                </a>
+
+                <a href="#locations" class="nav-link">
+                    <span class="nav-icon">⌖</span>
+                    ตำแหน่งจัดเก็บ
+                </a>
+
+                <a href="#notifications" class="nav-link">
+                    <span class="nav-icon">♧</span>
+                    การแจ้งเตือน
+                </a>
+
+                <a href="#history" class="nav-link">
+                    <span class="nav-icon">↻</span>
+                    ประวัติกิจกรรม
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>HOME STORAGE</p>
+                <span>เวอร์ชันทดลอง 0.1</span>
+            </div>
+        </aside>
+
+        <!-- พื้นที่เนื้อหาหลัก -->
+        <main class="main-content">
+
+            <!-- ส่วนหัว -->
+            <header class="topbar">
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    type="button"
+                    aria-label="เปิดหรือปิดเมนู"
+                >
+                    ☰
+                </button>
+
+                <div class="page-heading">
+                    <h1>Dashboard</h1>
+                    <p id="currentDate">กำลังโหลดวันที่...</p>
+                </div>
+
+                <div class="user-area">
+                    <div class="user-avatar">U</div>
+
+                    <div class="user-info">
+                        <label for="memberSelect">สมาชิกที่กำลังใช้งาน</label>
+
+                        <select id="memberSelect">
+                            <option value="สมาชิก A">สมาชิก A</option>
+                            <option value="สมาชิก B">สมาชิก B</option>
+                            <option value="สมาชิก C">สมาชิก C</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+
+            <!-- เนื้อหา Dashboard -->
+            <section class="dashboard-section" id="dashboard">
+                <div class="welcome-card">
+                    <div>
+                        <p class="welcome-label">HOME OVERVIEW</p>
+
+                        <h2>
+                            สวัสดี,
+                            <span id="welcomeName">สมาชิก A</span>
+                        </h2>
+
+                        <p>มาดูกันว่าตอนนี้สิ่งของในบ้านเป็นอย่างไรบ้าง</p>
+                    </div>
+
+                    <div class="welcome-icon">⌂</div>
+                </div>
+
+                <!-- การ์ดสรุปข้อมูล -->
+                <div class="stats-grid">
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span>สิ่งของทั้งหมด</span>
+                            <span class="stat-icon blue">□</span>
+                        </div>
+                        <h3>128</h3>
+                        <p>จำนวนรวมในระบบ</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span>พร้อมใช้งาน</span>
+                            <span class="stat-icon green">✓</span>
+                        </div>
+                        <h3>115</h3>
+                        <p>พร้อมนำไปใช้</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span>กำลังถูกยืม</span>
+                            <span class="stat-icon orange">↗</span>
+                        </div>
+                        <h3>8</h3>
+                        <p>ยังคืนไม่ครบ</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <span>ไม่ทราบตำแหน่ง</span>
+                            <span class="stat-icon purple">⌖</span>
+                        </div>
+                        <h3>5</h3>
+                        <p>ต้องตรวจสอบตำแหน่ง</p>
+                    </article>
+
+                </div>
+
+                <!-- กิจกรรมล่าสุด -->
+                <section class="content-card">
+                    <div class="section-heading">
+                        <div>
+                            <h2>กิจกรรมล่าสุด</h2>
+                            <p>รายการตัวอย่างสำหรับหน้า Dashboard</p>
+                        </div>
+
+                        <a href="#history" class="text-link">
+                            ดูประวัติทั้งหมด →
+                        </a>
+                    </div>
+
+                    <div class="activity-list">
+
+                        <article class="activity-item">
+                            <div class="activity-icon green">✓</div>
+                            <div class="activity-details">
+                                <h3>คืนค้อนแล้ว</h3>
+                                <p>สมาชิก B · อุปกรณ์ช่าง</p>
+                            </div>
+                            <span class="activity-time">10:30</span>
+                        </article>
+
+                        <article class="activity-item">
+                            <div class="activity-icon orange">↗</div>
+                            <div class="activity-details">
+                                <h3>นำสว่านออกไปใช้</h3>
+                                <p>สมาชิก A · อุปกรณ์ช่าง</p>
+                            </div>
+                            <span class="activity-time">09:15</span>
+                        </article>
+
+                        <article class="activity-item">
+                            <div class="activity-icon purple">⌖</div>
+                            <div class="activity-details">
+                                <h3>พบสิ่งของที่ไม่ทราบตำแหน่ง</h3>
+                                <p>สมาชิก C · กล่องเก็บของ</p>
+                            </div>
+                            <span class="activity-time">เมื่อวาน</span>
+                        </article>
+
+                    </div>
+                </section>
+
+                <p class="demo-notice">
+                    หมายเหตุ: ข้อมูลในหน้านี้เป็นข้อมูลตัวอย่าง
+                    ยังไม่ได้บันทึกหรือเชื่อมต่อฐานข้อมูลจริง
+                </p>
+            </section>
+
+            <!-- ส่วนอื่น ๆ สำหรับพัฒนาต่อ -->
+            
+            <section class="inventory-section" id="inventory">
+
+                <div class="inventory-header">
+                    <div>
+                        <h2>สิ่งของทั้งหมด</h2>
+                        <p>จัดการรายการสิ่งของภายในบ้าน</p>
+                    </div>
+
+                    <button type="button" class="btn-primary" id="addItemBtn">
+                        + เพิ่มสิ่งของ
+                    </button>
+                </div>
+
+                <!-- สรุปจำนวนสิ่งของ -->
+                <div class="inventory-summary">
+                    <div class="summary-card">
+                        <p>รายการทั้งหมด</p>
+                        <h3 id="totalItems">0</h3>
+                    </div>
+
+                    <div class="summary-card">
+                        <p>พร้อมใช้งาน</p>
+                        <h3 id="availableItems">0</h3>
+                    </div>
+
+                    <div class="summary-card">
+                        <p>ไม่ทราบตำแหน่ง</p>
+                        <h3 id="unknownItems">0</h3>
+                    </div>
+                </div>
+
+                <!-- ช่องค้นหา -->
+                <div class="inventory-toolbar">
+                    <input
+                        type="search"
+                        id="searchItem"
+                        placeholder="ค้นหาชื่อสิ่งของหรือรหัส..."
+                        aria-label="ค้นหาสิ่งของ"
+                    >
+                </div>
+
+                <!-- ตารางสิ่งของ -->
+                <div class="table-wrapper">
+                    <table class="inventory-table">
+                        <thead>
+                            <tr>
+                                <th>รหัส</th>
+                                    <th>ชื่อสิ่งของ</th>
+                                    <th>หมวดหมู่</th>
+                                    <th>จำนวน</th>
+                                    <th>ตำแหน่งจัดเก็บ</th>
+                                    <th>สถานะ</th>
+                                    <th>จัดการ</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="itemTableBody">
+                            <!-- JavaScript จะเพิ่มรายการตรงนี้ -->
+                        </tbody>
+                    </table>
+
+                    <p class="empty-message" id="emptyMessage">
+                        ยังไม่มีสิ่งของในรายการ
+                    </p>
+                </div>
+                    
+                <!-- ฟอร์มเพิ่มสิ่งของ -->
+                <dialog id="itemDialog" class="item-dialog">
+                    <form id="itemForm" class="item-form">
+                        <div class="form-heading">
+                            <h2>เพิ่มสิ่งของใหม่</h2>
+                            <button type="button" id="closeItemDialog"
+                                    class="close-dialog" aria-label="ปิดฟอร์ม">×</button>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="itemName">ชื่อสิ่งของ *</label>
+                            <input type="text" id="itemName"
+                                maxlength="100" required
+                                placeholder="เช่น ค้อน">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="itemCategory">หมวดหมู่ *</label>
+                            <input type="text" id="itemCategory"
+                                maxlength="60" required
+                                placeholder="เช่น อุปกรณ์ช่าง">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="itemType">ประเภทสิ่งของ</label>
+                            <select id="itemType">
+                                <option value="quantity">นับจำนวน เช่น ถ่าน 20 ก้อน</option>
+                                <option value="individual">แยกชิ้น เช่น สว่าน DR-001</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="itemQuantity">จำนวน *</label>
+                            <input type="number" id="itemQuantity"
+                                min="1" max="999999" step="1"
+                                value="1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="itemStatus">สถานะตำแหน่ง</label>
+                            <select id="itemStatus">
+                                <option value="available">พร้อมใช้งาน</option>
+                                <option value="unknown">ไม่ทราบตำแหน่ง</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>ตำแหน่งจัดเก็บ</label>
+
+                            <div id="itemLocationsContainer"></div>
+
+                            <button type="button" id="addItemLocationBtn"
+                                    class="btn-secondary">
+                                + เพิ่มตำแหน่งอีกแห่ง
+                            </button>
+
+                            <small>
+                                เลือกตำแหน่งที่เก็บสิ่งของ และระบุจำนวนในแต่ละแห่ง
+                            </small>
+                        </div>
+
+                        <p id="itemFormError" class="form-error"
+                        role="alert" hidden></p>
+
+                        <div class="form-actions">
+                            <button type="button" id="cancelItemBtn"
+                                    class="btn-secondary">ยกเลิก</button>
+                            <button type="submit" class="btn-primary">
+                                บันทึกสิ่งของ
+                            </button>
+                        </div>
+                    </form>
+                </dialog>
+
+            </section>
+
+            
+            <!-- LOCATIONS SECTION -->
+            
+            <section class="locations-section" id="locations">
+
+                <div class="locations-header">
+                    <div>
+                        <h2>ตำแหน่งจัดเก็บ</h2>
+                        <p>จัดการบ้าน ห้อง ตู้ ชั้น และกล่องเก็บสิ่งของ</p>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="btn-primary"
+                        id="addLocationBtn">
+                        + เพิ่มตำแหน่ง
+                    </button>
+                </div>
+
+                <!-- พื้นที่แสดงโครงสร้างบ้านและตำแหน่ง -->
+                <div class="locations-grid" id="locationsGrid">
+                    <p class="empty-message">
+                        ยังไม่มีตำแหน่งจัดเก็บ
+                    </p>
+                </div>
+
+            </section>
+
+                
+            <dialog id="locationDialog" class="item-dialog">
+                <form id="locationForm" class="item-form">
+
+                    <div class="form-heading">
+                        <h2>เพิ่มตำแหน่งใหม่</h2>
+                        <button type="button"
+                                id="closeLocationDialog"
+                                class="close-dialog">×</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="locationName">ชื่อตำแหน่ง *</label>
+                        <input type="text"
+                            id="locationName"
+                            placeholder="เช่น ห้องเก็บของ"
+                            maxlength="100"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="locationType">ประเภทตำแหน่ง</label>
+                        
+                    <select id="locationType">
+                        <option value="house">บ้าน</option>
+                        <option value="room">ห้อง</option>
+                        <option value="cabinet">ตู้</option>
+                        <option value="shelf">ชั้น</option>
+                        <option value="box">กล่อง</option>
+                    </select>
+
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="locationParent">
+                            ตำแหน่งที่อยู่ภายใน
+                        </label>
+
+                        <select id="locationParent">
+                            <option value="">ไม่มี (ตำแหน่งหลัก)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button"
+                                id="cancelLocationBtn"
+                                class="btn-secondary">
+                            ยกเลิก
+                        </button>
+
+                        <button type="submit" class="btn-primary">
+                            บันทึกตำแหน่ง
+                        </button>
+                    </div>
+
+                </form>
+            </dialog>
+
+            </section>
+
+
+            <section class="placeholder-section" id="borrowed">
+                <h2>รายการยืม</h2>
+                <p>เราจะเพิ่มระบบนำของออกไปใช้และคืนของในขั้นต่อไป</p>
+            </section>
+
+            <section class="placeholder-section" id="notifications">
+                <h2>การแจ้งเตือน</h2>
+                <p>ส่วนนี้จะใช้แสดงสิ่งของที่ต้องตรวจสอบและรายการที่ยังไม่คืน</p>
+            </section>
+
+            <section class="placeholder-section" id="history">
+                <h2>ประวัติกิจกรรม</h2>
+                <p>ส่วนนี้จะใช้แสดงประวัติการเพิ่ม แก้ไข ยืม และคืนสิ่งของ</p>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- เชื่อมต่อไฟล์ JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
